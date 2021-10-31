@@ -1,0 +1,140 @@
+.homePageFull {
+    width: 1511px;
+}
+
+.black {
+    background-image: url('../../images/background_image5.jpg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-attachment: scroll;
+    min-height: 730px;
+}
+
+.miniLogo {
+    width: 215px;
+    margin: 5px;
+    position: fixed;
+    cursor: pointer;
+}
+
+.mainLogo {
+    width: 450px;
+    padding-left: 530px;
+    padding-top: 150px;
+}
+
+.hamburger_menu {
+    float: right;
+    color: black;
+    font-size: 63px;
+    font-weight: bold;
+    padding-right: 15px;
+    margin-top: -25px;
+    cursor: pointer;
+    padding-left: 25px;
+}
+
+/*********************/
+
+.container {
+    position: relative;
+    /* display: inline-block; */
+    float: right;
+}
+
+.button {
+    padding: 0;
+    width: 50px;
+    border: 0;
+    /* float: right; */
+    color: #333;
+    background-color: transparent;
+    cursor: pointer;
+    outline: 0;
+    font-size: 40px;
+}
+
+.dropdown {
+    position: absolute;
+    top: 106%;
+    right: 0;
+    width: 220px;
+    text-align: center;
+    z-index: 2;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    box-shadow: 0 16px 24px 2px rgb(0 0 0 / 14%);
+    background: rgb(204, 204, 204);
+    background: rgba(204, 204, 204, 0.5);
+    color: black
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    padding: 8px 12px;
+}
+
+li:hover {
+    background-color: rgba(0, 0, 0, 0.14);
+    cursor: pointer;
+}
+
+/*********************/
+
+.sec_slogen {
+    font-size: 30px;
+    font-family: nadav;
+    text-align: center;
+    color: black;
+    margin-bottom: 0;
+}
+
+.sec_slogen label {
+    font-size: 35px;
+    color: #dd0045;
+}
+
+.arrow_div {
+    width: 180px;
+    height: 180px;
+    background-color: black;
+    color: white;
+    font-family: nadav;
+    font-size: 20px;
+    text-align: center;
+    border-radius: 50%;
+    margin-left: 666px;
+    margin-top: 50px;
+    padding-top: 85px;
+    box-sizing: border-box;
+}
+
+.example {
+    display: inline-block;
+    width: 100%;
+}
+
+.img_for_example_left {
+    width: 650px;
+    margin: 85px;
+    float: left;
+}
+
+.img_for_example_right {
+    width: 650px;
+    margin: 85px;
+    float: right;
+}
+
+.wrap_title_p {
+    width: 680px;
+    display: inline-block;
+    font-family: calibri;
+    margin-top: 170px;
+    text-align: center;
+}

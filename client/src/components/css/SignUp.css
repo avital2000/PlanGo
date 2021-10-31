@@ -1,0 +1,25 @@
+.sign_up_button {
+  float: right;
+  margin-right: 9px !important;
+  margin-top: -10px !important;
+  font-size: 25px !important;
+  font-family: nadav !important;
+}
+
+.wrap_title h2 {
+  display: inline-block;
+  padding: 15px;
+}
+
+.sign_up_form {
+  position: absolute;
+  margin-top: 18%;
+  margin-left: 50%;
+  background-color: white;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  border: 2px solid #dd0045;
+  box-shadow: black 2px 2px 20px;
+  padding: 25px;
+  text-align: center;
+}
