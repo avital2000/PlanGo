@@ -123,12 +123,14 @@ li:hover {
     width: 650px;
     margin: 85px;
     float: left;
+    cursor: pointer;
 }
 
 .img_for_example_right {
     width: 650px;
     margin: 85px;
     float: right;
+    cursor: pointer;
 }
 
 .wrap_title_p {

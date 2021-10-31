@@ -31,20 +31,33 @@ const NavBar = () => {
             setState(false);
         }
     };
+
+    const goHome = () => {
+        history.push('./');
+    }
+
+    const handleOpenList = (e) => {
+        if (e == "groups")
+            history.push('./groupList')
+        else if (e == "calendars")
+            history.push('./calendarList');
+        else if (e == "logs")
+        history.push('./logList');
+    }
+
     return (
         <nav className="nav">
             <img className="background_image" />
-            <img src={newLogo} className="miniLogo" />
-            {/* <label className="hamburger_menu" > ... </label> */}
+            <img src={newLogo} className="miniLogo" onClick={goHome} />
             <div className="container" ref={container}>
                 <button type="button" className="button" onClick={handleButtonClick}>
                     ☰
                 </button>
-                {state.open && (<div class="dropdown">
+                {state.open && (<div className="dropdown">
                     <ul>
-                        <li>קבוצות</li>
-                        <li>לוחות שנה</li>
-                        <li>יומנים</li>
+                        <li onClick={()=>{handleOpenList("groups")}} value="groups">קבוצות</li>
+                        <li onClick={()=>{handleOpenList("calendars")}} value="calendars">לוחות שנה</li>
+                        <li onClick={()=>{handleOpenList("logs")}} value="logs">יומנים</li>
                         <li></li>
                     </ul>
                 </div>)}

@@ -3,9 +3,10 @@ const mongoose = require("mongoose");
 const datesForLogSchema = new mongoose.Schema({
   // log_id = ObjectId,
   date: Date,
-  Time:String,
+  Time: String,
   voting_counter: Number,
-  hours:[Number]
+  voting_percent: Number,
+  hours: [Number]
 });
 
 const Dates_for_log = mongoose.model("dates_for_log", datesForLogSchema);

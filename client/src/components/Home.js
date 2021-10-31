@@ -18,17 +18,17 @@ import SignUp from './SignUpDialog';
 import { Button } from '@mui/material';
 
 const Home = (props) => {
-    // const history = useHistory();
+    const history = useHistory();
     // useEffect(() => {
     //     function getData1() {
     //         props.getData();
     //     }
     //     getData1()
     // }, [])
-  
+
     return (<>
         <div className="black" >
-           <NavBar />
+            <NavBar />
             <div>
                 <img src={newLogo}
                     className="mainLogo" />
@@ -46,7 +46,7 @@ const Home = (props) => {
         </div>
         <div className="examples" >
             <div className="example" >
-                <img src={logImg1}
+                <img src={logImg1} onClick={() => { history.push('./logList') }}
                     className="img_for_example_left" />
                 { /* <img src={logImg2} className="img_for_example"/> */}
                 <div className="wrap_title_p" >
@@ -80,12 +80,12 @@ const Home = (props) => {
                     </p>
                     <a href="/LogList" > למעבר לכל המפגשים </a>
                 </div >
-                <img src={bussinessLogImg}
+                <img src={bussinessLogImg} onClick={() => { history.push('./businessLogList') }}
                     className="img_for_example_right" />
             </div>
 
             <div className="example" >
-                <img src={calendarImg}
+                <img src={calendarImg} onClick={() => { history.push('./calendarLisr') }}
                     className="img_for_example_left" />
                 <div className="wrap_title_p" >
                     <h3 > לוח שנה </h3>

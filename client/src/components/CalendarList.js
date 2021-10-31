@@ -20,12 +20,8 @@ const CalendarList = (props) => {
         <NewCalendar />
     }
 
-    const goHome = () => {
-        history.push('./');
-    }
-
     return (<>
-        {/* <NavBar /> */}
+            {/* <NavBar /> */}
         <div>hello calendar list</div>
         <div>
             {props.calendarArr.map((item) => {

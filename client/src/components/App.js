@@ -9,9 +9,10 @@ import GroupList from "./GroupList";
 import MyAccount from "./MyAccount";
 import CalendarList from "./CalendarList";
 import NewCalendar from './NewCalendar';
-import NavBar from './NavBar';
+// import NavBar from './NavBar';
 import Footer from './Footer';
 import MyCalendar from './Calendar';
+import BusinessLogList from './BusinessLogList';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route exact path='/newCalendar'  component={props => <NewCalendar {...props}/>}></Route>
           <Route exact path='/signUp'  component={props => <SignUpDialog {...props}/>}></Route>
           <Route exact path='/calendar'  component={props => <MyCalendar {...props}/>}></Route>
+          <Route exact path='/businessLogList'  component={props => <BusinessLogList {...props}/>}></Route>
         </Switch>
       </Router>
       <Footer />
