@@ -3,19 +3,19 @@ import { connect } from 'react-redux';
 import { useHistory } from 'react-router';
 // import { Button, TextField, Grid } from '@material-ui/core';
 
-import { getData } from '../store/actions/home';
+// import { getData } from '../store/actions/home';
 import './css/Home.css';
 import NavBar from './NavBar';
-import logoHome from '../images/LogoHome.jpg';
-import homePageFull from '../images/HomePageFull.jpg';
+// import logoHome from '../images/LogoHome.jpg';
+// import homePageFull from '../images/HomePageFull.jpg';
 import newLogo from '../images/LogoNoBack.png';
 import bussinessLogImg from '../images/BussinessLogExample.jpg';
 import calendarImg from '../images/CalendarExample.jpg';
 import logImg1 from '../images/LogExample1.jpg';
-import logImg2 from '../images/LogExample2.jpg';
-import background from '../images/background_image.jpg';
-import SignUp from './SignUpDialog';
-import { Button } from '@mui/material';
+// import logImg2 from '../images/LogExample2.jpg';
+// import background from '../images/background_image.jpg';
+// import SignUp from './SignUpDialog';
+// import { Button } from '@mui/material';
 
 const Home = (props) => {
     const history = useHistory();
