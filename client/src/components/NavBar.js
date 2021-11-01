@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import React from 'react';
 import { useHistory } from 'react-router';
 
@@ -37,18 +36,18 @@ const NavBar = () => {
     }
 
     const handleOpenList = (e) => {
-        if (e == "groups")
+        if (e === "groups")
             history.push('./groupList')
-        else if (e == "calendars")
+        else if (e === "calendars")
             history.push('./calendarList');
-        else if (e == "logs")
+        else if (e === "logs")
         history.push('./logList');
     }
 
     return (
         <nav className="nav">
             <img className="background_image" />
-            <img src={newLogo} className="miniLogo" onClick={goHome} />
+            <img src={newLogo} alt={newLogo} className="miniLogo" onClick={goHome} />
             <div className="container" ref={container}>
                 <button type="button" className="button" onClick={handleButtonClick}>
                     ☰

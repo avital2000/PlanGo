@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { connect } from 'react-redux';
+import React from 'react';
+// import { connect } from 'react-redux';
 import { useHistory } from 'react-router';
 // import { Button, TextField, Grid } from '@material-ui/core';
 
@@ -17,7 +17,7 @@ import logImg1 from '../images/LogExample1.jpg';
 // import SignUp from './SignUpDialog';
 // import { Button } from '@mui/material';
 
-const Home = (props) => {
+const Home = () => {
     const history = useHistory();
     // useEffect(() => {
     //     function getData1() {
@@ -30,7 +30,7 @@ const Home = (props) => {
         <div className="black" >
             <NavBar />
             <div>
-                <img src={newLogo}
+                <img src={newLogo} alt={newLogo}
                     className="mainLogo" />
                 <p className="sec_slogen" >
                     <label>.פלאנגו</label>
@@ -46,7 +46,7 @@ const Home = (props) => {
         </div>
         <div className="examples" >
             <div className="example" >
-                <img src={logImg1} onClick={() => { history.push('./logList') }}
+                <img src={logImg1} alt={logImg1} onClick={() => { history.push('./logList') }}
                     className="img_for_example_left" />
                 { /* <img src={logImg2} className="img_for_example"/> */}
                 <div className="wrap_title_p" >
@@ -80,12 +80,12 @@ const Home = (props) => {
                     </p>
                     <a href="/LogList" > למעבר לכל המפגשים </a>
                 </div >
-                <img src={bussinessLogImg} onClick={() => { history.push('./businessLogList') }}
+                <img src={bussinessLogImg} alt={bussinessLogImg} onClick={() => { history.push('./businessLogList') }}
                     className="img_for_example_right" />
             </div>
 
             <div className="example" >
-                <img src={calendarImg} onClick={() => { history.push('./calendarLisr') }}
+                <img src={calendarImg} alt={calendarImg} onClick={() => { history.push('./calendarLisr') }}
                     className="img_for_example_left" />
                 <div className="wrap_title_p" >
                     <h3 > לוח שנה </h3>
@@ -96,7 +96,6 @@ const Home = (props) => {
                 </div >
             </div>
         </div>
-        { /* <img src={homePageFull} className="homePageFull" /> */}
     </>)
 }
 export default Home;

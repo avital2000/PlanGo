@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './css/SignUp.css';
 import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
 
-import MyAccount from './MyAccount';
+// import MyAccount from './MyAccount';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 
@@ -14,9 +14,9 @@ const SignUp = () => {
     const handleClose = () => setOpen(false);
 
     const history = useHistory();
-    useEffect(() => {
-        handleSubmit(state);
-    }, []);
+    // useEffect(() => {
+    //     handleSubmit(state);
+    // }, []);
 
     const [state, setState] = React.useState({
         first_name: '',
@@ -39,10 +39,10 @@ const SignUp = () => {
         let isValid = validate(event);
         if (isValid) {
             let response = await axios.post('http://localhost:3001', state)
-            .then(res => setState({ first_name: res.data }))
-            .catch(error => { console.log(error.message); });
-            if (response)
-                history.push('/userAccount');
+                .then(res => setState({ first_name: res.data }))
+                .catch(error => { console.log(error.message); });
+            // if (response)
+            // history.push('/userAccount');
             console.log(response);
             // if (!response.data.ok && response.data.message) {
             //   history.push('/calendar');
@@ -65,10 +65,10 @@ const SignUp = () => {
                         {/* <h2>Sign-In</h2> */}
                         <h2>Sign-Up</h2>
                     </div>
-                    <form onSubmit={handleSubmit.bind(state)}>
+                    <form onSubmit={(state) => { handleSubmit(state) }}>
                         <input type="text" placeholder="שם פרטי"
                             id="first_name"
-                            useRef={state.first_name}
+                            useref={state.first_name}
                             onChange={handleChange.bind(this, "firstName")} />
                         <br />
                         <br />

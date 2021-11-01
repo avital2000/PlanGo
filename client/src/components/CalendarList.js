@@ -2,9 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { useEffect } from 'react';
 
-import { addCalendar, getAllCalendars, deleteCalendar, selectCalendar } from '../store/actions/calendar';
-import NewCalendar from './NewCalendar';
-import NavBar from './NavBar';
+import { getAllCalendars, deleteCalendar, selectCalendar } from '../store/actions/calendar';
+// import NavBar from './NavBar';
 import { useHistory } from 'react-router-dom';
 
 const CalendarList = (props) => {
@@ -16,9 +15,6 @@ const CalendarList = (props) => {
         }
         getAllCalendars1()
     }, [])
-    const newCalendar = () => {
-        <NewCalendar />
-    }
 
     return (<>
             {/* <NavBar /> */}
@@ -34,8 +30,7 @@ const CalendarList = (props) => {
                 </div></>)
             })}
         </div>
-        <a href='./newCalendar'>add new calendar</a>
-        <p onClick={newCalendar}>add new calendar in a dialog</p>
+        <label onClick={()=>{history.push('./newCalendar')}}>add new calendar</label>
     </>)
 }
 const myMapStateToProps = (state) => {
