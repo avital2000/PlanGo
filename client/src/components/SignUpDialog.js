@@ -26,8 +26,10 @@ const SignUp = () => {
         errors: {}
     });
 
-    const handleChange = () => {
-
+    const handleChange = (feild, e) => {
+        console.log('changed has been occured ' + e.target + " " + feild);
+        setState({ first_name: feild });
+        console.log(state);
     }
 
     const validate = (event) => {
@@ -69,7 +71,7 @@ const SignUp = () => {
                         <input type="text" placeholder="שם פרטי"
                             id="first_name"
                             useref={state.first_name}
-                            onChange={handleChange.bind(this, "firstName")} />
+                            onChange={handleChange.bind(this, "first_name")} />
                         <br />
                         <br />
                         <input type="text" placeholder="שם משפחה" id="last_name" />
@@ -82,6 +84,10 @@ const SignUp = () => {
                         <br />
                         <br />
                         <input type="submit" value="Sign Up" />
+                        <br />
+                        <br />
+                        <input type="checkbox" id="checkbox" />
+                        <label value="remember">remember me</label>
                     </form>
                 </div>
             </Modal>

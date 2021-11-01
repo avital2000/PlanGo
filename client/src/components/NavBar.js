@@ -23,12 +23,13 @@ const NavBar = () => {
         });
     };
     const handleClickOutside = (event) => {
-        if (
-            container.current &&
-            !container.current.contains(event.target)
-        ) {
-            setState(false);
-        }
+        console.log('click outside');
+        // if (
+        //     container.current &&
+        //     !container.current.contains(event.target)
+        // ) {
+        //     setState(false);
+        // }
     };
 
     const goHome = () => {
@@ -45,7 +46,7 @@ const NavBar = () => {
     }
 
     return (
-        <nav className="nav">
+        <nav className="nav" onClick={handleClickOutside}>
             <img className="background_image" />
             <img src={newLogo} alt={newLogo} className="miniLogo" onClick={goHome} />
             <div className="container" ref={container}>

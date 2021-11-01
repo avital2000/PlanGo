@@ -13,6 +13,7 @@ import NewCalendar from './NewCalendar';
 import Footer from './Footer';
 import MyCalendar from './Calendar';
 import BusinessLogList from './BusinessLogList';
+import SignupForm from './SignUp';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           <Route exact path='/signUp'  component={props => <SignUpDialog {...props}/>}></Route>
           <Route exact path='/calendar'  component={props => <MyCalendar {...props}/>}></Route>
           <Route exact path='/businessLogList'  component={props => <BusinessLogList {...props}/>}></Route>
+          <Route exact path='/signUpNew'  component={props => <SignupForm {...props}/>}></Route>
         </Switch>
       </Router>
       <Footer />

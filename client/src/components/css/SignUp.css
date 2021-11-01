@@ -9,6 +9,9 @@
 .wrap_title h2 {
   display: inline-block;
   padding: 15px;
+  font-family: nadav;
+  text-decoration-line: underline;
+  text-decoration-color: #dd0045;
 }
 
 .sign_up_form {
@@ -22,4 +25,8 @@
   box-shadow: black 2px 2px 20px;
   padding: 25px;
   text-align: center;
+}
+
+.input-error{
+  border-color: red;
 }
