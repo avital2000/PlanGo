@@ -11,10 +11,11 @@ export const addUser = (user) => {
 
 export const getAllUsers = () => {
     return (dispatch) => {
-        axios.get('http://localhost:3000/user').then(succ => {
+        console.log('getAllUsers function');
+        axios.get('http://localhost:3001/user/getAll').then(succ => {
             console.log("succeeded");
-            dispatch(saveUsers(succ));
-        }).catch(err => console.log("failed"));
+            dispatch(saveUsers(succ.data));
+        }).catch(() => console.log("failed"));
     }
 }
 

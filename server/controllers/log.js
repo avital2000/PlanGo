@@ -1,6 +1,4 @@
 const Log = require("../models/log");
-const mongoose = require("mongoose");
-
 
 const getAll = async (req, res) => {
     try {

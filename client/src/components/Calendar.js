@@ -73,10 +73,12 @@ export default class MyCalendar extends React.Component {
       console.log("nothing");
     }
   };
-
+  //  [open, setOpen] = React.useState(false);
+  //  handleOpen = () => setOpen(true);
   render() {
     return (
       <div>
+
         <FullCalendar
           // initialView={dayGridMonth}
           schedulerLicenseKey="GPL-My-Project-Is-Open-Source"
@@ -98,10 +100,12 @@ export default class MyCalendar extends React.Component {
           ]}
           eventClick={event => {
             console.log(event.event._def.publicId);
+           // handleOpen();
           }}
+
           events={this.state.events}
           select={this.handleSelectedDates}
-          // eventLimit={3}
+        // eventLimit={3}
         />
       </div>
     );

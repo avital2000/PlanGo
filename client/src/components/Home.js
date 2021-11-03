@@ -46,7 +46,7 @@ const Home = () => {
         </div>
         <div className="examples" >
             <div className="example" >
-                <img src={logImg1} alt={logImg1} onClick={() => { history.push('./logList') }}
+                <img src={logImg1} alt={logImg1} onClick={() => { }}
                     className="img_for_example_left" />
                 { /* <img src={logImg2} className="img_for_example"/> */}
                 <div className="wrap_title_p" >
@@ -80,12 +80,12 @@ const Home = () => {
                     </p>
                     <a href="/LogList" > למעבר לכל המפגשים </a>
                 </div >
-                <img src={bussinessLogImg} alt={bussinessLogImg} onClick={() => { history.push('./businessLogList') }}
+                <img src={bussinessLogImg} alt={bussinessLogImg} onClick={() => { }}
                     className="img_for_example_right" />
             </div>
 
             <div className="example" >
-                <img src={calendarImg} alt={calendarImg} onClick={() => { history.push('./calendarLisr') }}
+                <img src={calendarImg} alt={calendarImg} onClick={() => { }}
                     className="img_for_example_left" />
                 <div className="wrap_title_p" >
                     <h3 > לוח שנה </h3>

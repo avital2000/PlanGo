@@ -3,7 +3,7 @@ import * as actionTypes from '../actionTypes';
 
 export const getAllCalendars = () => {
     return (dispatch) => {
-        axios.get("http://localhost:3000/calendar/getAll").then(calendarList => {
+        axios.get("http://localhost:3001/calendar/getAll").then(calendarList => {
             console.log("succeeded");
             // כאן הוא משגר לרידוסר את סייב לוגס
             dispatch(saveCalendars(calendarList.data));

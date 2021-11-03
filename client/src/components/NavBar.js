@@ -1,16 +1,22 @@
 import React from 'react';
 import { useHistory } from 'react-router';
+import Button from '@mui/material/Button';
+
 
 
 import newLogo from '../images/LogoNoBack.png';
 import './css/NavBar.css';
-import SignUp from './SignUpDialog';
+import SignUp from './SignUp';
 
 const NavBar = () => {
     const history = useHistory();
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
+
+    const [openSignUp, setOpenSignUp] = React.useState(false);
+    const handleOpenSignUp = () => setOpenSignUp(true);
+    const handleCloseSignUp = () => setOpenSignUp(false);
 
     /*Burger Bar */
     const container = React.createRef();
@@ -42,9 +48,9 @@ const NavBar = () => {
         else if (e === "calendars")
             history.push('./calendarList');
         else if (e === "logs")
-        history.push('./logList');
+            history.push('./logList');
     }
-
+    
     return (
         <nav className="nav" onClick={handleClickOutside}>
             <img className="background_image" />
@@ -55,15 +61,17 @@ const NavBar = () => {
                 </button>
                 {state.open && (<div className="dropdown">
                     <ul>
-                        <li onClick={()=>{handleOpenList("groups")}} value="groups">קבוצות</li>
-                        <li onClick={()=>{handleOpenList("calendars")}} value="calendars">לוחות שנה</li>
-                        <li onClick={()=>{handleOpenList("logs")}} value="logs">יומנים</li>
+                        <li onClick={() => { handleOpenList("groups") }} value="groups">קבוצות</li>
+                        <li onClick={() => { handleOpenList("calendars") }} value="calendars">לוחות שנה</li>
+                        <li onClick={() => { handleOpenList("logs") }} value="logs">יומנים</li>
                         <li></li>
                     </ul>
                 </div>)}
             </div>
+            <Button onClick={handleOpenSignUp} className="sign_up_button">הירשם</Button>
 
-            <SignUp />
+            {/* <SignUp open={openSignUp} /> */}
+            <SignUp open={openSignUp} handleClose={handleCloseSignUp}/>
         </nav>
     )
 }

@@ -1,144 +1,180 @@
-import React from 'react';
-import { useFormik } from 'formik';
+import useStyles from './styles';
+import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import * as React from 'react';
 import Modal from '@mui/material/Modal';
+import { useFormik } from 'formik';
+import { useHistory } from 'react-router';
+import * as yup from 'yup';
+import axios from 'axios';
+import Alert from '@mui/material/Alert';
+import { useState, useEffect } from 'react';
+
 import './css/SignUp.css';
 
-const validate = values => {
-    const errors = {};
+const validationSchema = yup.object({
+    first_name: yup
+        .string('הכנס שם פרטי')
+        .max(15, 'מקסימום 15 תווים')
+        .min(2, 'מינימום 2 תווים')
+        .required('חובה להזין שם פרטי'),
+    last_name: yup
+        .string('הכנס שם משפחה')
+        .max(15, 'מקסימום 15 תווים')
+        .min(2, 'מינימום 2 תווים')
+        .required('חובה להזין שם משפחה'),
+    email: yup
+        .string('הכנס כתובת מייל')
+        .email('כתובת מייל לא חוקית')
+        .required('חובה להזין כתובת מייל'),
+    password: yup
+        .string('הכנס סיסמא')
+        .min(6, 'סיסמא חייבת להכיל מינימום 6 תווים')
+        .required('חובה להזין סיסמא'),
+});
 
-    if (!values.firstName) {
-        errors.firstName = 'Required';
-    } else if (values.firstName.length > 15) {
-        errors.firstName = 'Must be 15 characters or less';
-    }
+const SignUp = (props) => {
+    const history = useHistory();
 
-    if (!values.lastName) {
-        errors.lastName = 'Required';
-    } else if (values.lastName.length > 20) {
-        errors.lastName = 'Must be 20 characters or less';
-    }
-
-    if (!values.email) {
-        errors.email = 'Required';
-    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-        errors.email = 'Invalid email address';
-    }
-
-    if (!values.password) {
-        errors.password = 'Required';
-    } else if (values.password.length < 8)
-        errors.password = 'Must contain 8 characters at least';
-
-    return errors;
-};
-
-const SignupForm = () => {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
+    const [showError, setShowError] = React.useState(false);
+
+    const classes = useStyles();
+
     const formik = useFormik({
         initialValues: {
-            firstName: '',
-            lastName: '',
+            first_name: '',
+            last_name: '',
             email: '',
             password: ''
         },
-        validate,
-        onSubmit: values => {
+        validationSchema: validationSchema,
+        onSubmit: (values) => {
             alert(JSON.stringify(values, null, 2));
+            handleSubmit(values);
         },
     });
+
+    const handleSubmit = async (values) => {
+        try {
+            let response = await axios.post('http://localhost:3001/user/signup', formik.values);
+            if (response.data.ok) {
+                toggleShowError();
+                history.push('/userAccount');
+            }
+            else {
+                alert(response.data.message);
+                toggleShowError();
+            }
+            console.log(response);
+        }
+        catch (e) {
+            alert('catch');
+            console.log(e);
+        }
+    }
+
+    const toggleShowError = () => {
+        showError ? setShowError(false) : setShowError(true);
+    }
+
     return (
         <div>
-            <Button onClick={handleOpen} className="sign_up_button">הירשם</Button>
             <Modal
-                open={open}
-                onClose={handleClose}
+                open={props.open}
+                onClose={props.handleClose}
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description">
-
                 <div className="sign_up_form">
                     <div className="wrap_title">
-                        {/* <h2>Sign-In</h2> */}
-                        <h2>Sign-Up</h2>
+                        <h2>יצירת חשבון</h2>
                     </div>
-                    <form onSubmit={formik.handleSubmit}>
-                        {/* <label htmlFor="firstName">First Name</label> */}
-                        <input
-                            id="firstName"
-                            name="firstName"
-                            type="text"
+                    <form dir="rtl" onSubmit={formik.handleSubmit}>
+                        <Alert severity="error"
+                            className={showError ? "error_elem_show" : "error_elem_hide"}>
+                            משתמש זה קיים במערכת!
+                            <label className="signIn_link"> לכניסה לחשבון קיים לחץ כאן</label>
+                        </Alert>
+                        <TextField
+                            id="first_name"
+                            name="first_name"
+                            label="שם פרטי"
+                            variant="standard"
+                            InputLabelProps={{
+                                classes: { root: classes.root }
+                            }}
+                            error={formik.touched.first_name && Boolean(formik.errors.first_name)}
+                            helperText={formik.touched.first_name && formik.errors.first_name}
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}
-                            value={formik.values.firstName}
-                            placeholder="שם פרטי"
-                            className={formik.errors.firstName && formik.touched.firstName ? 
-                                "input-error" : null}
+                            value={formik.values.first_name}
+                            helperText={formik.touched.first_name && formik.errors.first_name}
                         />
-                            {formik.touched.firstName && formik.errors.firstName ? (
-                                <div>{formik.errors.firstName}</div>
-                            ) : null}
                         <br />
                         <br />
-                        {/* <label htmlFor="lastName">Last Name</label> */}
-                        <input
-                            id="lastName"
-                            name="lastName"
-                            type="text"
+                        <TextField
+                            id="last_name"
+                            name="last_name"
+                            label="שם משפחה"
+                            variant="standard"
+                            InputLabelProps={{
+                                classes: { root: classes.root }
+                            }}
+                            error={formik.touched.last_name && Boolean(formik.errors.last_name)}
+                            helperText={formik.touched.last_name && formik.errors.last_name}
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}
-                            value={formik.values.lastName}
-                            placeholder="שם משפחה"
-                            className={formik.errors.lastName && formik.touched.lastName ? 
-                                "input-error" : null}
+                            value={formik.values.last_name}
+                            helperText={formik.touched.last_name && formik.errors.last_name}
                         />
-                        {formik.touched.lastName && formik.errors.lastName ? (
-                            <div>{formik.errors.lastName}</div>
-                        ) : null}
                         <br />
                         <br />
-                        {/* <label htmlFor="email">Email Address</label> */}
-                        <input
+                        <TextField
                             id="email"
                             name="email"
-                            type="email"
+                            label="אימייל"
+                            variant="standard"
+                            InputLabelProps={{
+                                classes: { root: classes.root }
+                            }}
+                            helperText={formik.touched.email && formik.errors.email}
+                            error={formik.touched.email && Boolean(formik.errors.email)}
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}
                             value={formik.values.email}
-                            placeholder="כתובת מייל"
-                            className={formik.errors.email && formik.touched.email ? 
-                                "input-error" : null}
+                            helperText={formik.touched.email && formik.errors.email}
                         />
-                        {formik.touched.email && formik.errors.email ? (
-                            <div>{formik.errors.email}</div>
-                        ) : null}
                         <br />
                         <br />
-                        {/* <label htmlFor="password">סיסמא</label> */}
-                        <input
+                        <TextField
                             id="password"
                             name="password"
+                            label="סיסמא"
                             type="password"
+                            autoComplete="current-password"
+                            variant="standard"
+                            InputLabelProps={{
+                                classes: { root: classes.root }
+                            }}
+                            error={formik.touched.password && Boolean(formik.errors.password)}
+                            helperText={formik.touched.password && formik.errors.password}
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}
                             value={formik.values.password}
-                            placeholder="כתובת מייל"
-                            className={formik.errors.password && formik.touched.password ? 
-                                "input-error" : null}
+                            helperText={formik.touched.password && formik.errors.password}
                         />
-                        {formik.touched.password && formik.errors.password ? (
-                            <div>{formik.errors.password}</div>
-                        ) : null}
                         <br />
                         <br />
-                        <button type="submit">הירשם</button>
+                        <Button color="secondary" variant="contained" type="submit">הירשם</Button>
+
                     </form>
                 </div>
             </Modal>
         </div>
-    )
-};
+    );
+}
 
-export default SignupForm;
+export default SignUp;

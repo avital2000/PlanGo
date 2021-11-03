@@ -29,7 +29,7 @@ const LogList = (props) => {
     }
 
     const goHome = () => {
-        history.push('./');
+        // history.push('./');
     }
     return (<>
         {/* <NavBar /> */}

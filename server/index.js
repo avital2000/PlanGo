@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const morgan = require("morgan");
 
-  mongoose.connect("mongodb://localhost:27017/meeting_DB")
+  mongoose.connect("mongodb://localhost:27017/meeting_DB", {useNewUrlParser: true, useUnifiedTopology:true})
   .then(() => {
     console.log("connected to mongodb");
   })

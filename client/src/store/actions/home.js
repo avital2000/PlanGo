@@ -4,7 +4,7 @@ import * as actionTypes from '../actionTypes';
 
 export const getData = () => {
     return (dispatch) => {
-        axios.get("http://localhost:3000/log/getAll").then(logsList => {
+        axios.get("http://localhost:3001/log/getAll").then(logsList => {
             console.log("succeeded");
             // כאן הוא משגר לרידוסר את סייב לוגס
             dispatch(saveLogs(logsList.data));

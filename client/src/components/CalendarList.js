@@ -30,7 +30,7 @@ const CalendarList = (props) => {
                 </div></>)
             })}
         </div>
-        <label onClick={()=>{history.push('./newCalendar')}}>add new calendar</label>
+        <label onClick={()=>{}}>add new calendar</label>
     </>)
 }
 const myMapStateToProps = (state) => {

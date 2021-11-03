@@ -3,7 +3,7 @@ import * as actionTypes from '../actionTypes';
 
 export const getAllGroups = () => {
     return (dispatch) => {
-        axios.get("http://localhost:3000/group/getAll").then(groupList => {
+        axios.get("http://localhost:3001/group/getAll").then(groupList => {
                 console.log("succeeded");
                 // כאן הוא משגר לרידוסר את סייב לוגס
                 dispatch(saveGroups(groupList.data));
