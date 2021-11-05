@@ -1,7 +1,7 @@
 import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
 
 import "./css/App.css";
-import SignInDialog from './SignInDialog';
+import SignIn from './SignIn';
 import SignUp from './SignUp';
 import Home from "./Home";
 import LogList from "./LogList";
@@ -23,7 +23,7 @@ function App() {
         <Switch>
           <Route exact path='/'  component={props => <Home {...props}/>}></Route>
           <Route exact path='/signUp'  component={props => <SignUp {...props}/>}></Route>
-          <Route exact path='/signIn' component={props => <SignInDialog {...props}/>}></Route>
+          <Route exact path='/signIn' component={props => <SignIn {...props}/>}></Route>
           <Route exact path='/logList'  component={props => <LogList {...props}/>}></Route>
           <Route exact path='/groupList'  component={props => <GroupList {...props}/>}></Route>
           <Route exact path='/calendarList'  component={props => <CalendarList {...props}/>}></Route>

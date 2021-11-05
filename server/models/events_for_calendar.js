@@ -7,6 +7,8 @@ const eventsForCalendarSchema = new mongoose.Schema({
   image: String,
   short_description: String,
   long_description: String,
+}, {
+  versionKey: false
 });
 
 const Events_for_calendar = mongoose.model(

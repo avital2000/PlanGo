@@ -7,6 +7,7 @@ import Button from '@mui/material/Button';
 import newLogo from '../images/LogoNoBack.png';
 import './css/NavBar.css';
 import SignUp from './SignUp';
+import SignIn from './SignIn';
 
 const NavBar = () => {
     const history = useHistory();
@@ -17,6 +18,10 @@ const NavBar = () => {
     const [openSignUp, setOpenSignUp] = React.useState(false);
     const handleOpenSignUp = () => setOpenSignUp(true);
     const handleCloseSignUp = () => setOpenSignUp(false);
+
+    const [openSignIn, setOpenSignIn] = React.useState(false);
+    const handleOpenSignIn = () => setOpenSignIn(true);
+    const handleCloseSignIn = () => setOpenSignIn(false);
 
     /*Burger Bar */
     const container = React.createRef();
@@ -69,9 +74,12 @@ const NavBar = () => {
                 </div>)}
             </div>
             <Button onClick={handleOpenSignUp} className="sign_up_button">הירשם</Button>
+            <Button onClick={handleOpenSignIn} variant="outlined" size="small" className="sign_up_button">היכנס</Button>
 
             {/* <SignUp open={openSignUp} /> */}
+            {/* <SignUp open={openSignUp} handleClose={handleCloseSignUp}/> */}
             <SignUp open={openSignUp} handleClose={handleCloseSignUp}/>
+            <SignIn open={openSignIn} handleClose={handleCloseSignIn}/>
         </nav>
     )
 }

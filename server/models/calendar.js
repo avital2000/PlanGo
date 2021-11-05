@@ -6,6 +6,8 @@ const calendarSchema = new mongoose.Schema({
   manager_user_id: { type: mongoose.Types.ObjectId, ref: 'user' },
   group_id: {type:mongoose.Types.ObjectId, ref:'user'},
   // events: [Events_for_calendar],
+}, {
+  versionKey: false
 });
 
 const Calendar = mongoose.model("calendar", calendarSchema);

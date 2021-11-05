@@ -17,6 +17,8 @@ const logSchema = new mongoose.Schema({
   
   //   area_id: ObjectId,
   //   activity_type_id: ObjectId,
+}, {
+  versionKey: false
 });
 
 const Log = mongoose.model("log", logSchema);

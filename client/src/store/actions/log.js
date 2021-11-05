@@ -13,7 +13,7 @@ export const getAllLogs = () => {
 
 export const getLogsById = (id) => {
     return (dispatch) => {
-        axios.get("http://localhost:3001/log/getLogsById").then(logsList => {
+        axios.get("http://localhost:3001/log/getLogsById/" + id).then(logsList => {
             console.log("succeeded");
             dispatch(saveLogs(logsList.data));
         }).catch(err => console.log("failed"));

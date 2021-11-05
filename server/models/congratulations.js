@@ -10,6 +10,8 @@ const congratulationsSchema = new mongoose.Schema({
   sender_user_id: { type: mongoose.Types.ObjectId, ref: "user" },
   receiver_user_id: { type: mongoose.Types.ObjectId, ref: "user" },
   permission: Boolean,
+}, {
+  versionKey: false
 });
 
 const Congratulations = mongoose.model(

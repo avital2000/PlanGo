@@ -4,6 +4,8 @@ const activityForLogSchema = new mongoose.Schema({
   //log_id = ObjectId,
   activity_id: { type: mongoose.Types.ObjectId, ref: "activity" },
   voting_counter: Number,
+}, {
+  versionKey: false
 });
 
 const Activity_for_log = mongoose.model(

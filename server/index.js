@@ -25,3 +25,7 @@ app.use(morgan("dev"));
 app.listen("3001", () => {
   console.log("listening on port " + 3001);
 });
+
+app.get('/', function (req, res) {
+  res.send("get work")
+})
