@@ -10,9 +10,9 @@ const getAll = async (req, res) => {
 };
 
 const getLogsById = async (req, res) => {
-    const { _id } = req.params;
+    const user_id = req.params.id;
     try {
-        const log = await Log.findById(_id);
+        const log = await Log.find({ user_id: '61827392c5c1f4241ca61628' });
         res.status(200).json(log);
     } catch (error) {
         res.status(404).json({ message: error.message });

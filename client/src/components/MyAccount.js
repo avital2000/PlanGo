@@ -9,11 +9,11 @@ import { getLogsById } from '../store/actions/log';
 const MyAccount = (props) => {
     const location = useLocation();
     const myparams = location && location.state ? location.state.user : null;
-    console.log(myparams._id);
+    console.log(myparams[0]._id);
     useEffect(() => {
         function getGCLById1() {
             console.log('get groups, calendars, logs by id');
-            props.getLogsById();
+            props.getLogsById(myparams[0]._id);
         }
         getGCLById1()
     }, [])
